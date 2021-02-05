@@ -25,7 +25,7 @@ def Valor_medio(picture):
             for j in range(1, height):
                 if picture[i, j, k]>20:
                   media[k] = media[k] + picture[i, j, k]  #sumatoria
-
+                else
         media[k] = media[k] / size
 
     return media

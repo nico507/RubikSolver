@@ -50,16 +50,16 @@ def mapeo(img):
             indice = i
 
     if indice == 0:
-        return 'B'
+        return 'U'
     if indice == 1:
-        return 'R'
+        return 'F'
     if indice == 2:
-        return 'A'
+        return 'D'
     if indice == 3:
-        return 'N'
+        return 'B'
     if indice == 4:
-        return 'V'
+        return 'L'
     if indice == 5:
-        return 'A'
+        return 'R'
     if indice == 6:
         return 'F'
