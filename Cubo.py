@@ -1,14 +1,17 @@
-from picamera import PiCamera
-from time import sleep
 
-def captura:
-    with picamera.PiCamera() as camera:
-        camera.resolution = (64, 64)  #ponemos la menor resolución posible para procesar más facilmente
+import picamera
+import time
+import numpy as np
+
+def captura():
+      with picamera.PiCamera() as camera:
+        camera.resolution = (64, 64) #ponemos la menor resolución posible para procesar más facilmente
         camera.framerate = 24
         time.sleep(2)
-        output = np.empty((64, 64, 3), dtype=np.uint8)  #formato de foto
+        output = np.empty((64, 64, 3), dtype=np.uint8) #formato de foto
         camera.capture(output, 'rgb') #captura de foto
-return output
+        output = output[:64, :64]
+      return output
 
 def Valor_medio(picture):
     width = picture.shape[0] #ancho de la foto
@@ -20,42 +23,46 @@ def Valor_medio(picture):
     for k in range(3):
         for i in range(1, width):
             for j in range(1, height):
-                media[k] = media[k] + picture[i, j, k]  #sumatoria
+                if picture[i, j, k]>50:
+                  media[k] = media[k] + picture[i, j, k]  #sumatoria
 
         media[k] = media[k] / size
 
     return media
 
 ##Obtener valores del cubo resuelto
-print("Iniciando, ponga el cubo con la cara blanca arriba\n")
+
+M=[]
+
+print("\nIniciando, ponga el cubo con la cara blanca arriba\n")
 input("presione una tecla para continuar")
 blanco=captura()
-M=Valor_medio(blanco)
+M.append(Valor_medio(blanco))
 
-print("ponga el cubo con la cara roja arriba\n")
+print("\nponga el cubo con la cara roja arriba\n")
 input("presione una tecla para continuar")
 rojo=captura()
-M+=Valor_medio(rojo)
+M.append(Valor_medio(rojo))
 
-print("ponga el cubo con la cara amarillo arriba\n")
+print("\nponga el cubo con la cara amarillo arriba\n")
 input("presione una tecla para continuar")
 amarillo=captura()
-M+=Valor_medio(amarillo)
+M.append(Valor_medio(amarillo))
 
-print("ponga el cubo con la cara naranja arriba\n")
+print("\nponga el cubo con la cara naranja arriba\n")
 input("presione una tecla para continuar")
 naranja=captura()
-M+=Valor_medio(naranja)
+M.append(Valor_medio(naranja))
 
-print("ponga el cubo con la cara verde arriba\n")
+print("\nponga el cubo con la cara verde arriba\n")
 input("presione una tecla para continuar")
 verde=captura()
-M+=Valor_medio(verde)
+M.append(Valor_medio(verde))
 
-print("ponga el cubo con la cara azul arriba\n")
+print("\nponga el cubo con la cara azul arriba\n")
 input("presione una tecla para continuar")
 azul=captura()
-M+=Valor_medio(azul)
+M.append(Valor_medio(azul))
 
 
 print(M)
