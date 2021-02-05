@@ -62,4 +62,4 @@ def mapeo(img):
     if indice == 5:
         return 'R'
     if indice == 6:
-        return 'F'
+        return 'X'
