@@ -3,20 +3,20 @@ from Cubo import Media
 
 # M=Media()
 
-M = [[67, 92, 79],  # Blanco
-     [118, 61, 65],  # Rojo
-     [81, 118, 71],  # Amarillo
-     [128, 86, 73],  # Naranja
-     [12, 132, 81],  # Verde
-     [34, 129, 133],  # Azul
-     [27, 55, 17]
-    ]  # Fondo
+##M = [[67, 92, 79],  # Blanco
+##     [118, 61, 65],  # Rojo
+#     [81, 118, 71],  # Amarillo
+#     [128, 86, 73],  # Naranja
+#     [12, 132, 81],  # Verde
+#     [34, 129, 133],  # Azul
+#     [27, 55, 17]
+#    ]  # Fondo
 
-def mapeo(img):
+def mapeo(img, M):
     w = np.shape(img)[0]
     h = np.shape(img)[1]
 
-    count = np.zeros(7)
+    count = np.zeros(6)
 
     for i in range(w):
         for j in range(h):
@@ -39,13 +39,11 @@ def mapeo(img):
             if img[i, j, 2] == M[5][0] and img[i, j, 1] == M[5][1] and img[i, j, 0] == M[5][2]:
                 count[5] = count[5] + 1
 
-            if img[i, j, 2] == M[6][0] and img[i, j, 1] == M[6][1] and img[i, j, 0] == M[6][2]:
-                count[6] = 1
 
     moda = max(count)
     indice = 0
 
-    for i in range(7):
+    for i in range(6):
         if count[i] == moda:
             indice = i
 
