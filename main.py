@@ -74,41 +74,41 @@ camera.capture('Cara1.jpg') #captura de foto
 lectura_cara('Cara1.jpg', M)
 
 input("gire el cubo")
-camera=picamera.PiCamera()
-camera.resolution = (64, 64) #ponemos la menor resolución posible para procesar más facilmente
-camera.framerate = 24
+#camera=picamera.PiCamera()
+#camera.resolution = (64, 64) #ponemos la menor resolución posible para procesar más facilmente
+#camera.framerate = 24
 time.sleep(2)
 camera.capture('Cara2.jpg') #captura de foto
 lectura_cara('Cara2.jpg', M)
 
 input("gire el cubo")
-camera=picamera.PiCamera()
-camera.resolution = (64, 64) #ponemos la menor resolución posible para procesar más facilmente
-camera.framerate = 24
+#camera=picamera.PiCamera()
+#camera.resolution = (64, 64) #ponemos la menor resolución posible para procesar más facilmente
+#camera.framerate = 24
 time.sleep(2)
 camera.capture('Cara3.jpg') #captura de foto
 lectura_cara('Cara3.jpg', M)
 
 input("gire el cubo")
-camera=picamera.PiCamera()
-camera.resolution = (64, 64) #ponemos la menor resolución posible para procesar más facilmente
-camera.framerate = 24
+#camera=picamera.PiCamera()
+#camera.resolution = (64, 64) #ponemos la menor resolución posible para procesar más facilmente
+#camera.framerate = 24
 time.sleep(2)
 camera.capture('Cara4.jpg') #captura de foto
 lectura_cara('Cara4.jpg', M)
 
 input("gire el cubo")
-camera=picamera.PiCamera()
-camera.resolution = (64, 64) #ponemos la menor resolución posible para procesar más facilmente
-camera.framerate = 24
+#camera=picamera.PiCamera()
+#camera.resolution = (64, 64) #ponemos la menor resolución posible para procesar más facilmente
+#camera.framerate = 24
 time.sleep(2)
 camera.capture('Cara5.jpg') #captura de foto
 lectura_cara('Cara5.jpg', M)
 
 input("gire el cubo")
-camera=picamera.PiCamera()
-camera.resolution = (64, 64) #ponemos la menor resolución posible para procesar más facilmente
-camera.framerate = 24
+#camera=picamera.PiCamera()
+#camera.resolution = (64, 64) #ponemos la menor resolución posible para procesar más facilmente
+#camera.framerate = 24
 time.sleep(2)
 camera.capture('Cara6.jpg') #captura de foto
 lectura_cara('Cara6.jpg', M)
