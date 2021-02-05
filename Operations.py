@@ -1,5 +1,6 @@
 import numpy as nmp
 
+
 M = [[17, 109, 149],  # Azul ya
      [246, 83, 20],  # Rojo ***
      [69, 205, 84],  # Verde pálido
@@ -14,14 +15,13 @@ M2 = [[0, 0, 255],  # Azul
             [255, 0, 0],  # Rojo
             [0, 255, 0],  # Verde
             [255, 128, 0],  # Naranja
-            [255, 255, 0],  # Amarillo
-            [255, 255, 255],  # Blanco
+            [255, 255, 0],  # Amarillo            [255, 255, 255],  # Blanco
             [0, 0, 0]]  # Fondo
 
-Classes = nmp.shape(M)[0]
 
-def MDM(img):
+def MDM(img, M):
 
+    Classes = nmp.shape(M)[0]
     width = img.shape[0]
     height = img.shape[1]
 
@@ -33,7 +33,7 @@ def MDM(img):
 
             D = []
 
-            for p in range(7):
+            for p in range(6):
 
                 dist = nmp.sqrt(
                     pow((img[i, j, 0] - M[p][0]), 2) +
@@ -54,8 +54,9 @@ def MDM(img):
 
     return MDM_out
 
-def WOS(img):
+def WOS(img, M):
 
+    Classes = nmp.shape(M)[0]
     width = img.shape[0]
     height = img.shape[1]
 

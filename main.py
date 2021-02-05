@@ -1,14 +1,15 @@
 import cv2
-from Image import segmento
+from Imagen import segmento
 from Median import median
-from operations import wos, mdm
+from Operations import WOS, MDM
 from mapeo_colores import mapeo
 from Cubo import Media
-
+import picamera
+import time
 
 def lectura_cara(n,M):
 
-    img1, img2, img3, img4, img5, img6, img7, img8, img9= get_the_video(n)
+    img1, img2, img3, img4, img5, img6, img7, img8, img9= segmento(n)
 
     colors = []
 
@@ -24,26 +25,26 @@ def lectura_cara(n,M):
     m9 = median(img9)
 
     # Aplicando el algoritmo WOS
-    wos_1 = wos(m1, M)
-    wos_2 = wos(m2, M)
-    wos_3 = wos(m3, M)
-    wos_4 = wos(m4, M)
-    wos_5 = wos(m5, M)
-    wos_6 = wos(m6, M)
-    wos_7 = wos(m7, M)
-    wos_8 = wos(m8, M)
-    wos_9 = wos(m9, M)
+    wos_1 = WOS(m1, M)
+    wos_2 = WOS(m2, M)
+    wos_3 = WOS(m3, M)
+    wos_4 = WOS(m4, M)
+    wos_5 = WOS(m5, M)
+    wos_6 = WOS(m6, M)
+    wos_7 = WOS(m7, M)
+    wos_8 = WOS(m8, M)
+    wos_9 = WOS(m9, M)
 
     # Aplicando el algoritmo MDM
-    mdm_1 = mdm(wos_1, M)
-    mdm_2 = mdm(wos_2, M)
-    mdm_3 = mdm(wos_3, M)
-    mdm_4 = mdm(wos_4, M)
-    mdm_5 = mdm(wos_5, M)
-    mdm_6 = mdm(wos_6, M)
-    mdm_7 = mdm(wos_7, M)
-    mdm_8 = mdm(wos_8, M)
-    mdm_9 = mdm(wos_9, M)
+    mdm_1 = MDM(wos_1, M)
+    mdm_2 = MDM(wos_2, M)
+    mdm_3 = MDM(wos_3, M)
+    mdm_4 = MDM(wos_4, M)
+    mdm_5 = MDM(wos_5, M)
+    mdm_6 = MDM(wos_6, M)
+    mdm_7 = MDM(wos_7, M)
+    mdm_8 = MDM(wos_8, M)
+    mdm_9 = MDM(wos_9, M)
 
     colors.append(mapeo(mdm_1))
     colors.append(mapeo(mdm_2))
@@ -60,9 +61,6 @@ def lectura_cara(n,M):
 
     cv2.imwrite("wos_1.jpg", wos_1)
     cv2.imwrite("mdm_1.jpg", mdm_1)
-    cv2.imwrite("wos_final.jpg", wos_final)
-    cv2.imwrite("mdm_final.jpg", mdm_final)
-
 
 M=Media()
 
@@ -71,4 +69,4 @@ camera.resolution = (64, 64) #ponemos la menor resolución posible para procesar
 camera.framerate = 24
 time.sleep(2)
 camera.capture('Cara1.jpg') #captura de foto
-lectura_cara('Cara1.jpg')
+lectura_cara('Cara1.jpg', M)
