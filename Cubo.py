@@ -23,7 +23,7 @@ def Valor_medio(picture):
     for k in range(3):
         for i in range(1, width):
             for j in range(1, height):
-                if picture[i, j, k]>50:
+                if picture[i, j, k]>20:
                   media[k] = media[k] + picture[i, j, k]  #sumatoria
 
         media[k] = media[k] / size
@@ -32,37 +32,38 @@ def Valor_medio(picture):
 
 ##Obtener valores del cubo resuelto
 
-M=[]
+def Media():
+  M=[]
 
-print("\nIniciando, ponga el cubo con la cara blanca arriba\n")
-input("presione una tecla para continuar")
-blanco=captura()
-M.append(Valor_medio(blanco))
+  print("\nIniciando, ponga el cubo con la cara blanca arriba\n")
+  input("presione una tecla para continuar")
+  blanco=captura()
+  M.append(Valor_medio(blanco))
 
-print("\nponga el cubo con la cara roja arriba\n")
-input("presione una tecla para continuar")
-rojo=captura()
-M.append(Valor_medio(rojo))
+  print("\nponga el cubo con la cara roja arriba\n")
+  input("presione una tecla para continuar")
+  rojo=captura()
+  M.append(Valor_medio(rojo))
 
-print("\nponga el cubo con la cara amarillo arriba\n")
-input("presione una tecla para continuar")
-amarillo=captura()
-M.append(Valor_medio(amarillo))
+  print("\nponga el cubo con la cara amarillo arriba\n")
+  input("presione una tecla para continuar")
+  amarillo=captura()
+  M.append(Valor_medio(amarillo))
 
-print("\nponga el cubo con la cara naranja arriba\n")
-input("presione una tecla para continuar")
-naranja=captura()
-M.append(Valor_medio(naranja))
+  print("\nponga el cubo con la cara naranja arriba\n")
+  input("presione una tecla para continuar")
+  naranja=captura()
+  M.append(Valor_medio(naranja))
 
-print("\nponga el cubo con la cara verde arriba\n")
-input("presione una tecla para continuar")
-verde=captura()
-M.append(Valor_medio(verde))
+  print("\nponga el cubo con la cara verde arriba\n")
+  input("presione una tecla para continuar")
+  verde=captura()
+  M.append(Valor_medio(verde))
 
-print("\nponga el cubo con la cara azul arriba\n")
-input("presione una tecla para continuar")
-azul=captura()
-M.append(Valor_medio(azul))
+  print("\nponga el cubo con la cara azul arriba\n")
+  input("presione una tecla para continuar")
+  azul=captura()
+  M.append(Valor_medio(azul))
 
-
-print(M)
+  return M
+#print(M)
