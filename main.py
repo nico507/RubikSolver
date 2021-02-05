@@ -1,74 +1,68 @@
 import cv2
 from video_operations import get_the_video
-from filtro import mediana
+from Median import median
 from operations import wos, mdm
 from mapeo_colores import mapeo
-from normalizar import normalizar
-from prueba import media_color
 
 
 def lectura_cara(n):
 
-    a, b, c, d, e, f, g, h, i, final = get_the_video(n)
+    img1, img2, img3, img4, img5, img6, img7, img8, img9, final = get_the_video(n)
 
-    mis_colores = []
+    colors = []
 
     # Calculando la mediana de cada cuadrado
-    a_m = mediana(a)
-    b_m = mediana(b)
-    c_m = mediana(c)
-    d_m = mediana(d)
-    e_m = mediana(e)
-    f_m = mediana(f)
-    g_m = mediana(g)
-    h_m = mediana(h)
-    i_m = mediana(i)
-    final_m = mediana(final)
+    m1 = median(img1)
+    m2 = median(img2)
+    m3 = median(img3)
+    m4 = median(img4)
+    m5 = median(img5)
+    m6 = median(img6)
+    m7 = median(img7)
+    m8 = median(img8)
+    m9 = median(img9)
+    final_m = median(final)
 
     # Aplicando el algoritmo WOS
-    wos_a = wos(a_m)
-    wos_b = wos(b_m)
-    wos_c = wos(c_m)
-    wos_d = wos(d_m)
-    wos_e = wos(e_m)
-    wos_f = wos(f_m)
-    wos_g = wos(g_m)
-    wos_h = wos(h_m)
-    wos_i = wos(i_m)
+    wos_1 = wos(m1)
+    wos_2 = wos(m2)
+    wos_3 = wos(m3)
+    wos_4 = wos(m4)
+    wos_5 = wos(m5)
+    wos_6 = wos(m6)
+    wos_7 = wos(m7)
+    wos_8 = wos(m8)
+    wos_9 = wos(m9)
     wos_final = wos(final_m)
 
     # Aplicando el algoritmo MDM
-    mdm_a = mdm(wos_a)
-    mdm_b = mdm(wos_b)
-    mdm_c = mdm(wos_c)
-    mdm_d = mdm(wos_d)
-    mdm_e = mdm(wos_e)
-    mdm_f = mdm(wos_f)
-    mdm_g = mdm(wos_g)
-    mdm_h = mdm(wos_h)
-    mdm_i = mdm(wos_i)
+    mdm_1 = mdm(wos_1)
+    mdm_2 = mdm(wos_2)
+    mdm_3 = mdm(wos_3)
+    mdm_4 = mdm(wos_4)
+    mdm_5 = mdm(wos_5)
+    mdm_6 = mdm(wos_6)
+    mdm_7 = mdm(wos_7)
+    mdm_8 = mdm(wos_8)
+    mdm_9 = mdm(wos_9)
     mdm_final = mdm(wos_final)
 
-    mis_colores.append(mapeo(mdm_a))
-    mis_colores.append(mapeo(mdm_b))
-    mis_colores.append(mapeo(mdm_c))
-    mis_colores.append(mapeo(mdm_d))
-    mis_colores.append(mapeo(mdm_e))
-    mis_colores.append(mapeo(mdm_f))
-    mis_colores.append(mapeo(mdm_g))
-    mis_colores.append(mapeo(mdm_h))
-    mis_colores.append(mapeo(mdm_i))
+    colors.append(mapeo(mdm_1))
+    colors.append(mapeo(mdm_2))
+    colors.append(mapeo(mdm_3))
+    colors.append(mapeo(mdm_4))
+    colors.append(mapeo(mdm_5))
+    colors.append(mapeo(mdm_6))
+    colors.append(mapeo(mdm_7))
+    colors.append(mapeo(mdm_8))
+    colors.append(mapeo(mdm_9))
 
-    print(mis_colores)
-    cv2.imwrite("a.jpg", a)
-    #cv2.imwrite("a_suavizado.jpg", a_m)
+    print(colors)
+    cv2.imwrite("img1.jpg", img1)
 
-    cv2.imwrite("wos_a.jpg", wos_a)
-    cv2.imwrite("mdm_a.jpg", mdm_a)
+    cv2.imwrite("wos_1.jpg", wos_1)
+    cv2.imwrite("mdm_1.jpg", mdm_1)
     cv2.imwrite("wos_final.jpg", wos_final)
     cv2.imwrite("mdm_final.jpg", mdm_final)
 
-
-
 lectura_cara(0)
-#media_color()
